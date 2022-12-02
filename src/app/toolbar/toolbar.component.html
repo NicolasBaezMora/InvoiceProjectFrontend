@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid container-nav-items">
+        <div class="logo" (click)="goHome()">
+            <img src="../../assets/logotc.png">
+        </div>
+        <div class="nav-items collapse navbar-collapse">
+
+            <ul class="navbar-nav  me-auto">
+                <li class="nav-item" routerLink="home" routerLinkActive="nav-item-border">
+                    Inicio
+                </li>
+                <li class="nav-item" routerLink="payment-record" routerLinkActive="nav-item-border">
+                    Registro de pagos
+                </li>
+                <li class="nav-item" routerLink="inquiries" routerLinkActive="nav-item-border">
+                    Consultas
+                </li>
+                <li class="nav-item" routerLink="admin" routerLinkActive="nav-item-border">
+                    ✎Admin
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>

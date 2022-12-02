@@ -1,0 +1,32 @@
+.navbar {
+    background-color: #2B8B4B;
+    color: #FFFFFF;
+    padding: 10px;
+    padding-inline: 100px;
+}
+
+.nav-item {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.container-nav-items {
+    position: relative;
+}
+
+.nav-items {
+    position: absolute;
+    right: 0;
+}
+
+.nav-item-border {
+    border-bottom: solid #F8DB66;
+}
+
+img {
+    height: 40px;
+}
+
+.logo {
+    cursor: pointer;
+}
