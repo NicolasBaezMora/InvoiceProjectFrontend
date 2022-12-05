@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { MainModule } from './main-module/main.module';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +16,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     BrowserModule,
     MainModule,
     RouterModule,
-    PrimengModule
+    PrimengModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

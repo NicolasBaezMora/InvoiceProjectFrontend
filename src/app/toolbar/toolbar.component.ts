@@ -9,8 +9,6 @@ import { MenuItem } from 'primeng/api';
 })
 export class ToolbarComponent implements OnInit {
   
-  public items: MenuItem[] = [];
-
   constructor(
     private router: Router
   ) {

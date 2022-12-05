@@ -1,1 +1,29 @@
-<p>payment-record works!</p>
+<div class="container">
+
+
+    <div class="container-form-p">
+
+        <div class="container-form-c">
+            <h2>Registro</h2>
+            <form [formGroup]="formFile" autocomplete="off">
+                <span class="in-input">
+                    <label for="hash">Hash de la entidad</label>
+                    <input pInputText type="text" placeholder="Hash" id="hash" formControlName="hash">
+                    <span class="form-text text-danger" *ngIf="fieldNotValid('hash')">El hash es necesario</span>
+                </span>
+                <div class="separator"></div>
+                <span class="in-input">
+                    <label for="hash">Archivo</label>
+                    <input type="file" class="form-control" formControlName="file" (change)="getFile($event)">
+                    <span class="form-text text-danger" *ngIf="fieldNotValid('file')">Campo invalido</span>
+                </span>
+            </form>
+        </div>
+        <button pButton class="p-btn" (click)="loadData()" [disabled]="disableButton"><b>Continuar</b></button>
+
+        
+    </div>
+    <app-my-custom-spinner *ngIf="progressSpinner"></app-my-custom-spinner>
+
+
+</div>

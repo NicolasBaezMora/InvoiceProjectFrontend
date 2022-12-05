@@ -1,0 +1,52 @@
+.line-design-up {
+    background-image: linear-gradient(to right, #ffffff, #D9D9D9);
+    width: 100%;
+    height: 180px;
+    margin-top: 60px;
+}
+
+.line-design-down {
+    background-image: linear-gradient(to right, #ffffff, #D9D9D9);
+    width: 100%;
+    height: 180px;
+    margin-top: 100px;
+}
+
+
+.img-home-up { 
+    position: relative;
+    width: 200px; 
+    height: 200px; 
+    overflow: hidden; 
+    border-radius: 50%; 
+    margin-top: 20px;
+} 
+
+.img-home-up img { 
+    width: auto; 
+    height: 100%; 
+}
+
+.img-home-down { 
+    position: relative;
+    width: 200px; 
+    height: 200px; 
+    overflow: hidden; 
+    border-radius: 50%; 
+    margin-bottom: 40px;
+} 
+
+.img-home-down img { 
+    width: auto; 
+    height: 100%; 
+}
+
+.text-home {
+    text-align: center;
+    margin-top: 55px;
+    font-size: 20px;
+}
+
+.green {
+    color: #2B8B4B;
+}
