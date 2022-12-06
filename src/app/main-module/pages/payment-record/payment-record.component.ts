@@ -11,6 +11,10 @@ import { FileService } from '../../services/file.service';
   styleUrls: ['./payment-record.component.scss']
 })
 export class PaymentRecordComponent implements OnInit {
+  vis: boolean = false;
+  dialog() {
+    this.vis = true;
+  }
 
   public formFile: FormGroup = this.formBuilder.group(
     {
@@ -59,7 +63,7 @@ export class PaymentRecordComponent implements OnInit {
     this.progressSpinner = true;
     this.disableButton = true;
 
-    this.fileService.getdata(
+    this.fileService.loadFile(
       this.formFile.get("hash")?.value,
       this.file!
     ).subscribe(
@@ -67,17 +71,17 @@ export class PaymentRecordComponent implements OnInit {
         next: data => {
           Swal.fire({
             title: "Datos procesados",
-            text: `Pagos consistentes: ${data.body.consistent}, Pagos inconsistentes: ${data.body.inconsistent}`,
+            text: `Pagos consistentes: ${data.body!.consistent}, Pagos inconsistentes: ${data.body!.inconsistent}`,
             confirmButtonColor: "#2B8B4B"
           });
           this.reset();
         },
-        error: error => {
-          console.log(error);
+        error: err => {
+          console.log(err);
           Swal.fire({
             icon: 'error',
             title: 'Ocurrio un error',
-            text: 'Datos erroneos',
+            text: err.error.message,
             confirmButtonColor: "#2B8B4B"
           })
           this.reset();

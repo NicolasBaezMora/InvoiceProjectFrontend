@@ -17,7 +17,7 @@ export class FileService {
   ) { }
 
 
-  public getdata(hash: string, file: File): Observable<WrapperResponse<ResponseFile>> {
+  public loadFile(hash: string, file: File): Observable<WrapperResponse<ResponseFile>> {
     const formData = new FormData;
     formData.append("hash", hash);
     formData.append("file", file);

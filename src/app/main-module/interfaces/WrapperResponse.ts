@@ -1,5 +1,5 @@
 export interface WrapperResponse<T> {
-    ok: boolean;
+    ok?: boolean;
     body: T;
-    message: string;
+    message?: string;
 }

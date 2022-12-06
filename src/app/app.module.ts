@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { MainModule } from './main-module/main.module';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,6 +16,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     MainModule,
     RouterModule,
     PrimengModule,

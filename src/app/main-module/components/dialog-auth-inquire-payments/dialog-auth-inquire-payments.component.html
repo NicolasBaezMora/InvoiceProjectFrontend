@@ -1,0 +1,29 @@
+<p-dialog [(visible)]="display" [modal]="true" [draggable]="false" header="Panel de consultas de pagos" (onHide)="hideDialog()">
+
+    <div class="container" *ngIf="!showTable">
+
+
+        <div class="container-form-p">
+    
+            <div class="container-form-c">
+                <h2>Autenticar</h2>
+                <form [formGroup]="form" autocomplete="off">
+                    <span class="in-input">
+                        <label for="hash">Hash de la entidad</label>
+                        <input pInputText type="text" placeholder="Hash" id="hash" formControlName="hash">
+                        <span class="form-text text-danger" *ngIf="fieldNotValid('hash')">El hash es necesario</span>
+                    </span>
+                </form>
+            </div>
+            <button pButton class="p-btn" (click)="loadData()" [disabled]="disableButton"><b>Continuar</b></button>
+    
+            
+        </div>
+    
+    
+    </div>
+    <app-table-payments [hash]="hash" *ngIf="showTable"></app-table-payments>
+
+</p-dialog>
+
+

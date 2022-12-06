@@ -10,7 +10,12 @@ import { InquiriesComponent } from './pages/inquiries/inquiries.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MyCustomSpinnerComponent } from './components/my-custom-spinner/my-custom-spinner.component';
 import {HttpClientModule} from '@angular/common/http';
-
+import { CardConsultComponent } from './components/card-consult/card-consult.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { DialogAuthInquirePaymentsComponent } from './components/dialog-auth-inquire-payments/dialog-auth-inquire-payments.component';
+import { DialogAuthInquireWalletComponent } from './components/dialog-auth-inquire-wallet/dialog-auth-inquire-wallet.component';
+import { DialogAuthInquireCommissionsComponent } from './components/dialog-auth-inquire-commissions/dialog-auth-inquire-commissions.component';
+import { TablePaymentsComponent } from './components/table-payments/table-payments.component';
 
 @NgModule({
   declarations: [
@@ -18,14 +23,20 @@ import {HttpClientModule} from '@angular/common/http';
     AdminComponent,
     PaymentRecordComponent,
     InquiriesComponent,
-    MyCustomSpinnerComponent
+    MyCustomSpinnerComponent,
+    CardConsultComponent,
+    DialogAuthInquirePaymentsComponent,
+    DialogAuthInquireWalletComponent,
+    DialogAuthInquireCommissionsComponent,
+    TablePaymentsComponent
   ],
   imports: [
     CommonModule,
     MainRoutingModule,
     PrimengModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FlexLayoutModule
   ]
 })
 export class MainModule { }
