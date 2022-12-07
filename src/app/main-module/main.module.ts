@@ -16,6 +16,8 @@ import { DialogAuthInquirePaymentsComponent } from './components/dialog-auth-inq
 import { DialogAuthInquireWalletComponent } from './components/dialog-auth-inquire-wallet/dialog-auth-inquire-wallet.component';
 import { DialogAuthInquireCommissionsComponent } from './components/dialog-auth-inquire-commissions/dialog-auth-inquire-commissions.component';
 import { TablePaymentsComponent } from './components/table-payments/table-payments.component';
+import { WalletViewComponent } from './components/wallet-view/wallet-view.component';
+import { TableCommissionsComponent } from './components/table-commissions/table-commissions.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { TablePaymentsComponent } from './components/table-payments/table-paymen
     DialogAuthInquirePaymentsComponent,
     DialogAuthInquireWalletComponent,
     DialogAuthInquireCommissionsComponent,
-    TablePaymentsComponent
+    TablePaymentsComponent,
+    WalletViewComponent,
+    TableCommissionsComponent
   ],
   imports: [
     CommonModule,

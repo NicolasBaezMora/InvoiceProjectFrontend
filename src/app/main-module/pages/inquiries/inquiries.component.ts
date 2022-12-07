@@ -38,7 +38,6 @@ export class InquiriesComponent {
   public openDialogAuth(event: string) {
     this.inquireType = event;
     this.display = true;
-    console.log(this.inquireType, this.display);
   }
 
   public resetDialogState(event: StateDialog) {

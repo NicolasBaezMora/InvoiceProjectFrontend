@@ -1,0 +1,46 @@
+<div class="container" *ngIf="validData">
+
+    <div class="card-wallet">
+        <div class="title">
+            <b>Cartera del cliente</b>
+        </div>
+        <hr>
+        <span class="name">
+            <i><b>{{nameClient}}</b></i>
+        </span>
+        <div class="body-card">
+            <div class="rectangle">
+                <div class="row">
+                    <div class="col-2">
+                        <div class="circle">
+                            <p style="color: #2B8B4B;"><b>Cuenta</b></p>
+                        </div>
+                        
+                    </div>
+                    <div class="col-4">
+                        <div class="saldo">
+                            <p style="color: #2B8B4B;">Saldo: {{typeBalance}}</p> 
+                        </div>
+                        
+                    </div>
+                    <div class="col-6">
+                        <div class="valor"><b>${{balance | number}}</b></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+<div class="card text-bg-danger mb-3 card-error" *ngIf="!validData">
+    <div class="card-body">
+        <h5 class="card-title">Hubo un error en la consulta!</h5>
+        <p class="card-text">{{errorMessage}}</p>
+    </div>
+</div>

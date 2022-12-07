@@ -1,0 +1,61 @@
+.card-error {
+    width: 600px;
+    margin: 30px
+}
+
+.container {
+    padding-inline: 110px;
+}
+
+.card-wallet {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-image: url("../../../../assets/wallet.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+    width: 700px;
+    height: 300px;
+    padding-top: 20px;
+    padding-inline: 20px;
+}
+
+.title {
+    color: #2B8B4B;
+    font-size: 25px;
+    text-align: center;
+}
+
+.name {
+    color: #2B8B4B;
+    font-size: 30px;
+    text-align: center;
+}
+
+.rectangle {
+    width: auto;
+    height: 70px;
+    margin-left: 50px;
+    background-color: #F2F2F2;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top: 20px;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 50px;
+}
+
+
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    background-color: #F2F2F2;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    text-align: center;
+    padding-top: 35px;
+}
+
+
+.valor {
+    padding-top: 20px;
+    color: #2B8B4B;
+
+}

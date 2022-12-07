@@ -1,0 +1,39 @@
+<div class="container" *ngIf="validData">
+
+    <p-table [value]="commissions" [tableStyle]="{'min-width': '50rem'}">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Id</th>
+                <th>Valor</th>
+                <th>Fecha de generación</th>
+                <th>Fecha inicial</th>
+                <th>Fecha final</th>
+                <th>Entidad</th>
+                <th>Sancionable</th>
+                <th>Metodo de convenio</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-commission>
+            <tr>
+                <td><b>#{{commission.id}}</b></td>
+                <td>${{commission.value | number}}</td>
+                <td>{{commission.dateGen}}</td>
+                <td>{{commission.dateInitialCalculation}}</td>
+                <td>{{commission.dateEndCalculation}}</td>
+                <td>{{commission.branchOfficeDTO.name}}</td>
+                <td>{{commission.branchOfficeDTO.sanctionable}}</td>
+                <td>{{commission.branchOfficeDTO.agreementTypeDTO.method}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+    <p-paginator [rows]="10" [totalRecords]="totalCommissions" (onPageChange)="paginatorChange($event)"></p-paginator>
+    <span><i>Numero de registros: {{totalCommissions}}</i></span>
+</div>
+
+<div class="card text-bg-danger mb-3 card-error" *ngIf="!validData">
+    <div class="card-body">
+        <h5 class="card-title">Hubo un error en la consulta!</h5>
+        <p class="card-text">{{errorMessage}}</p>
+    </div>
+</div>

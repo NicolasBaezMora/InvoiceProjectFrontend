@@ -13,10 +13,10 @@
         <app-dialog-auth-inquire-payments [display]="display" (onDialogState)="resetDialogState($event)"></app-dialog-auth-inquire-payments>
     </div>
     <div *ngSwitchCase="'wallet'">
-        <app-dialog-auth-inquire-wallet [display]="display"></app-dialog-auth-inquire-wallet>
+        <app-dialog-auth-inquire-wallet [display]="display" (onDialogState)="resetDialogState($event)"></app-dialog-auth-inquire-wallet>
     </div>
     <div *ngSwitchCase="'commissions'">
-        <app-dialog-auth-inquire-commissions [display]="display"></app-dialog-auth-inquire-commissions>
+        <app-dialog-auth-inquire-commissions [display]="display" (onDialogState)="resetDialogState($event)"></app-dialog-auth-inquire-commissions>
     </div>
     <div *ngSwitchDefault></div>
 </div>

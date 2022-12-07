@@ -15,21 +15,17 @@ export class TablePaymentsComponent implements OnInit {
   @Input()
   public hash: string = "";
 
-  public data: WrapperResponse<ResponseData<PaymentDTO[]>> = {
-    ok: true,
-    body: {
-      total: 0,
-      data: [],
-      totalPages: 0,
-      currentPage: 0
-    },
-    message: undefined
-  };
+  public validData: boolean = true;
 
   public errorMessage: string = "";
 
   private page: number = 0;
 
+  public selectedValue: string = "c";
+
+  public payments: PaymentDTO[] = [];
+
+  public totalPayments: number = 0;
 
   constructor(
     private paymentService: PaymentService
@@ -37,21 +33,31 @@ export class TablePaymentsComponent implements OnInit {
 
   }
 
-
-  ngOnInit(): void {
-    this.getConsistent(this.hash, this.page);
+  public switchConsistent() {
+    this.page = 0;
+    this.getConsistents(this.page);
   }
 
-  public getConsistent(hash: string, page: number) {
+  public switchInconsistent() {
+    this.page = 0;
+    this.getInconsistents(this.page);
+  }
 
-    this.paymentService.getConsistentPayments(hash, page).subscribe(
+  ngOnInit(): void {
+    this.getConsistents(this.page);
+  }
+
+  public getConsistents(page: number) {
+    this.paymentService.getConsistentPayments(this.hash, page).subscribe(
       {
         next: data => {
-          this.data = data;
+          this.validData = data.ok!;
+          this.payments = data.body!.data;
+          this.totalPayments = data.body.total;
         },
         error: err => {
           console.log(err);
-          this.data.ok = false;
+          this.validData = false;
           this.errorMessage = err.error.message;
         
         },
@@ -62,9 +68,39 @@ export class TablePaymentsComponent implements OnInit {
     );
   }
 
+  public getInconsistents(page: number) {
+    this.paymentService.getInconsistentPayment(this.hash, page).subscribe(
+      {
+        next: data => {
+          this.validData =  data.ok!;
+          this.payments = data.body!.data;
+          this.totalPayments = data.body.total;
+        },
+        error: err => {
+          console.log(err);
+          this.validData = false;
+          this.errorMessage = err.error.message;
+        },
+        complete: () => {
+
+        }
+      }
+    );
+  }
+
+
 
   public paginatorChange(event: any) {
-    this.getConsistent(this.hash, event.page);
+    switch (this.selectedValue) {
+      case "c":
+        this.getConsistents(event.page);
+
+      break;
+      case "i":
+        this.getInconsistents(event.page);
+
+      break;
+    }
   }
   
 }

@@ -18,16 +18,17 @@ export class PaymentService {
   ) { }
 
 
-  public getConsistentPayments(hash: string, page: number): Observable<WrapperResponse<ResponseData<PaymentDTO[]>>> {
+  public getConsistentPayments(hash: string, page: number): Observable<WrapperResponse<ResponseData<PaymentDTO>>> {
     const params = new HttpParams()
       .set("hash", hash)
       .set("page", page);
-    return this.httpClient.get<WrapperResponse<ResponseData<PaymentDTO[]>>>(`${this.baseUrl}payment/consistent`, {params});
+    return this.httpClient.get<WrapperResponse<ResponseData<PaymentDTO>>>(`${this.baseUrl}payment/consistent`, {params});
   }
 
-  public getInconsistentPayment(hash: string) {
-    const params = new HttpParams();
-    params.set("hash", hash);
+  public getInconsistentPayment(hash: string, page: number): Observable<WrapperResponse<ResponseData<PaymentDTO>>> {
+    const params = new HttpParams()
+      .set("hash", hash)
+      .set("page", page)
     return this.httpClient.get<WrapperResponse<ResponseData<PaymentDTO>>>(`${this.baseUrl}payment/inconsistent`, {params});
   }
 

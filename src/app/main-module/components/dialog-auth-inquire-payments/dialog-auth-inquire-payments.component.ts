@@ -27,8 +27,6 @@ export class DialogAuthInquirePaymentsComponent {
 
   public progressSpinner: boolean = false;
 
-  public disableButton: boolean = false;
-
   public showTable: boolean = false;
 
   @Output()
@@ -43,7 +41,6 @@ export class DialogAuthInquirePaymentsComponent {
   public hideDialog() {
     this.onDialogState.emit({inquireType: "", display: false});
     this.showTable = false;
-    console.log(this.display);
   }
 
   public loadData() {
