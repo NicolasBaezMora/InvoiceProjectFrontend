@@ -25,7 +25,7 @@ export class PaymentService {
     return this.httpClient.get<WrapperResponse<ResponseData<PaymentDTO>>>(`${this.baseUrl}payment/consistent`, {params});
   }
 
-  public getInconsistentPayment(hash: string, page: number): Observable<WrapperResponse<ResponseData<PaymentDTO>>> {
+  public getInconsistentPayments(hash: string, page: number): Observable<WrapperResponse<ResponseData<PaymentDTO>>> {
     const params = new HttpParams()
       .set("hash", hash)
       .set("page", page)

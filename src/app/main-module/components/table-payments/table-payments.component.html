@@ -40,7 +40,7 @@
         </ng-template>
     </p-table>
 
-    <p-paginator [rows]="10" [totalRecords]="totalPayments" (onPageChange)="paginatorChange($event)"></p-paginator>
+    <p-paginator #paginator [rows]="10" [totalRecords]="totalPayments" (onPageChange)="paginatorChange($event)"></p-paginator>
     <span><i>Numero de registros: {{totalPayments}}</i></span>
 </div>
 

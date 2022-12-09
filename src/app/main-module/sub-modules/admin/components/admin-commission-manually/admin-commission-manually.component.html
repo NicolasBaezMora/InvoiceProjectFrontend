@@ -1,0 +1,52 @@
+<button pButton type="button" class="p-button-danger p-button-outlined out-btn" (click)="adminOut()">✘ salir</button>
+
+<div class="card-container">
+    <p style="color: #2B8B4B;"><b>Generar comisiones manualmente</b></p>
+    <form [formGroup]="form" >
+        <div class="col">
+            <div class="row">
+                <div class="col-7">
+                    <div class="row">
+                        <span class="in-input">
+                            <label for="id">Entidad</label>
+                            <select formControlName="id" class="form-select" id="id">
+                                <option value="" selected>-- Selecciona una entidad --</option>
+                                <option *ngFor="let bro of branchOffices" [value]="bro.id">{{bro.name}}</option>
+                            </select>
+                            <span class="form-text text-danger" *ngIf="fieldNotValid('id')">El identificador es
+                                necesario</span>
+                        </span>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <span class="in-input">
+                                <label for="dateStart">Fecha inicio</label>
+                                <input pInputText type="date" id="dateStart" formControlName="dateStart">
+                                <span class="form-text text-danger" *ngIf="fieldNotValid('dateStart')">La fecha inicial
+                                    es necesaria</span>
+                            </span>
+
+                        </div>
+                        <div class="col-6">
+                            <span class="in-input">
+                                <label for="dateEnd">Fecha fin</label>
+                                <input pInputText type="date" id="dateEnd" formControlName="dateEnd">
+                                <span class="form-text text-danger" *ngIf="fieldNotValid('dateEnd')">La fecha final es
+                                    necesaria</span>
+                            </span>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="container-img">
+                        <img src="../../../../../../assets/commission-manually.png">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button pButton class="p-btn" (click)="loadData()"><b>Continuar</b></button>
+    </form>
+
+</div>

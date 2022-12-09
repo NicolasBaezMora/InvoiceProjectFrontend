@@ -23,4 +23,8 @@ export class CommissionService {
       .set("page", page);
     return this.httpClient.get<WrapperResponse<ResponseData<CommissionDTO>>>(`${this.baseUrl}commission`, {params});
   }
+
+  public generateCommissionManually(id: string, dateStart: string, dateEnd: string): Observable<WrapperResponse<null>> {
+    return this.httpClient.post<WrapperResponse<null>>(`${this.baseUrl}commission?idBranchOffice=${id}&dateInitial=${dateStart}&dateEnd=${dateEnd}`, {});
+  }
 }

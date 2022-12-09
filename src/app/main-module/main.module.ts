@@ -18,6 +18,10 @@ import { DialogAuthInquireCommissionsComponent } from './components/dialog-auth-
 import { TablePaymentsComponent } from './components/table-payments/table-payments.component';
 import { WalletViewComponent } from './components/wallet-view/wallet-view.component';
 import { TableCommissionsComponent } from './components/table-commissions/table-commissions.component';
+import { AdminPanelComponent } from './sub-modules/admin/components/admin-panel/admin-panel.component';
+import { AdminCommissionManuallyComponent } from './sub-modules/admin/components/admin-commission-manually/admin-commission-manually.component';
+import { AdminInvoiceComponent } from './sub-modules/admin/components/admin-invoice/admin-invoice.component';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +36,10 @@ import { TableCommissionsComponent } from './components/table-commissions/table-
     DialogAuthInquireCommissionsComponent,
     TablePaymentsComponent,
     WalletViewComponent,
-    TableCommissionsComponent
+    TableCommissionsComponent,
+    AdminPanelComponent,
+    AdminCommissionManuallyComponent,
+    AdminInvoiceComponent
   ],
   imports: [
     CommonModule,

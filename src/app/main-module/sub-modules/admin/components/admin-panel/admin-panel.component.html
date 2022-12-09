@@ -1,0 +1,11 @@
+
+<button pButton type="button" class="p-button-danger p-button-outlined out-btn" (click)="adminOut()">✘ salir</button>
+<div class="container" fxLayout.xs="column" fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="10px">
+
+
+    <app-card-consult *ngFor="let inquire of inquires" [imgUrl]="inquire.imgUrl" [textCard]="inquire.textCard"
+        [inquireType]="inquire.inquireType" fxFlex="30" fxFlex.sm="40" (onIunputInquire)="redirect($event)">
+    </app-card-consult>
+
+
+</div>

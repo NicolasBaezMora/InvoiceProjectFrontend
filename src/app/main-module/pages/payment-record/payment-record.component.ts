@@ -1,8 +1,7 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
-import { ResponseFile } from '../../interfaces/ResponseFile';
-import { WrapperResponse } from '../../interfaces/WrapperResponse';
+
 import { FileService } from '../../services/file.service';
 
 @Component({

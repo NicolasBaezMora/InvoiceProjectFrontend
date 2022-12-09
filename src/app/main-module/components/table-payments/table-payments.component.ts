@@ -1,9 +1,10 @@
 import { PaymentService } from './../../services/payment.service';
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { WrapperResponse } from '../../interfaces/WrapperResponse';
 import { ResponseData } from '../../interfaces/ResponseData';
 import { PaymentDTO } from '../../interfaces/PaymentDTO';
 import Swal from 'sweetalert2';
+import { Paginator } from 'primeng/paginator';
 
 @Component({
   selector: 'app-table-payments',
@@ -11,6 +12,9 @@ import Swal from 'sweetalert2';
   styleUrls: ['./table-payments.component.scss']
 })
 export class TablePaymentsComponent implements OnInit {
+
+  @ViewChild("paginator")
+  public paginator?: Paginator;
 
   @Input()
   public hash: string = "";
@@ -35,11 +39,13 @@ export class TablePaymentsComponent implements OnInit {
 
   public switchConsistent() {
     this.page = 0;
+    this.paginator?.changePage(this.page);
     this.getConsistents(this.page);
   }
 
   public switchInconsistent() {
     this.page = 0;
+    this.paginator?.changePage(this.page);
     this.getInconsistents(this.page);
   }
 
@@ -69,7 +75,7 @@ export class TablePaymentsComponent implements OnInit {
   }
 
   public getInconsistents(page: number) {
-    this.paymentService.getInconsistentPayment(this.hash, page).subscribe(
+    this.paymentService.getInconsistentPayments(this.hash, page).subscribe(
       {
         next: data => {
           this.validData =  data.ok!;

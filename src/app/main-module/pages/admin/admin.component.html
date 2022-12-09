@@ -1,1 +1,22 @@
-<p>admin works!</p>
+<div class="container">
+
+
+    <div class="container-form-p">
+
+        <div class="container-form-c">
+            <h2>Autenticar</h2>
+            <form [formGroup]="form" autocomplete="off">
+                <span class="in-input">
+                    <label for="hash">Clave de administrador</label>
+                    <input pInputText type="password" placeholder="Clave" id="password" formControlName="password">
+                    <span class="form-text text-danger" *ngIf="fieldNotValid('password')">La clave de administrador es necesaria</span>
+                </span>
+            </form>
+        </div>
+        <button pButton class="p-btn" (click)="authenticate()"><b>Continuar</b></button>
+
+        
+    </div>
+
+
+</div>

@@ -1,0 +1,48 @@
+<button pButton type="button" class="p-button-danger p-button-outlined out-btn" (click)="adminOut()">✘ salir</button>
+
+<button pButton class="p-btn">Añadir factura</button>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-4">
+            <p-radioButton (onClick)="switchPending()" name="groupname" value="pending" [(ngModel)]="selectedValue" label="Pendientes"></p-radioButton>
+            
+        </div>
+        <div class="col-4">
+            <p-radioButton (onClick)="switchPaid()" name="groupname" value="paid" [(ngModel)]="selectedValue" label="Pagadas"></p-radioButton>
+
+        </div>
+    </div>
+
+
+    <hr>
+
+    <p-table [value]="invoices" [tableStyle]="{'min-width': '50rem'}">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Id</th>
+                <th>Valor</th>
+                <th>Fecha de facturación</th>
+                <th>Id del cliente</th>
+                <th>Cliente</th>
+                <th>Estado de la factura</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-invoice>
+            <tr>
+                <td><b>#{{invoice.id}}</b></td>
+                <td>${{invoice.invoicedValue | number}}</td>
+                <td>{{invoice.invoicedDate}}</td>
+                <td><i>#{{invoice.walletDTO.clientDTO.id}}</i></td>
+                <td>{{invoice.walletDTO.clientDTO.name}}</td>
+                <td>{{invoice.stateInvoice.state}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+    <p-paginator #paginator [rows]="10" [totalRecords]="totalInvoices" (onPageChange)="paginatorChange($event)"></p-paginator>
+    <span><i>Numero de registros: {{totalInvoices}}</i></span>
+
+</div>
+
