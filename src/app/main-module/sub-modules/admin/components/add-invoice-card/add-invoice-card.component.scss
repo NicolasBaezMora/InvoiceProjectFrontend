@@ -1,0 +1,38 @@
+.card-container {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 30px;
+    width: 50%;
+    margin: 0 auto;
+    margin: 40px;
+    padding: 30px;
+    width: 400px;
+    margin-inline: 80px;
+}
+
+input {
+    width: 100%;
+}
+
+
+.separator {
+    margin-top: 15px;
+}
+
+
+
+.p-btn {
+    border-radius: 20px;
+    background-color: #F8DB66;
+    color: #2B8B4B;
+    border: 1px solid #2B8B4B;
+    margin-top: 10px;
+    width: 100%;
+    padding-left: 40%;
+}
+
+.p-btn:hover {
+    background-color: #2B8B4B;
+    color: #F8DB66;
+    border: 1px solid #F8DB66;
+}
+

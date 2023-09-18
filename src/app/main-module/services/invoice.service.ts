@@ -5,6 +5,7 @@ import { WrapperResponse } from '../interfaces/WrapperResponse';
 import { environment } from 'src/environments/environment';
 import { ResponseData } from '../interfaces/ResponseData';
 import { InvoiceDTO } from '../interfaces/InvoiceDTO';
+import { State } from '../interfaces/State';
 
 @Injectable({
   providedIn: 'root'
@@ -29,8 +30,22 @@ export class InvoiceService {
     return this.httpClient.get<WrapperResponse<ResponseData<InvoiceDTO>>>(`${this.baseUrl}invoice/paid`, {params});
   }
 
-  public createInvoice() {
-    
+  public getStateInvoices(): Observable<WrapperResponse<State[]>> {
+    return this.httpClient.get<WrapperResponse<State[]>>(`${this.baseUrl}stateInvoice`);
+  }
+
+  public createInvoice(value: number, date: string, walletId: number, stateId: number): Observable<WrapperResponse<InvoiceDTO>> {
+    const body = {
+      invoicedValue: value,
+      invoicedDate: date,
+      wallet: {
+        id: walletId
+      },
+      stateInvoice: {
+        id: stateId
+      }
+    };
+    return this.httpClient.post<WrapperResponse<InvoiceDTO>>(`${this.baseUrl}invoice`, body);
   }
 
 }

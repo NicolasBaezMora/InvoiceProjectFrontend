@@ -1,3 +1,4 @@
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Paginator } from 'primeng/paginator';
@@ -22,9 +23,14 @@ export class AdminInvoiceComponent implements OnInit {
 
   public page: number = 0;
 
+  public display: boolean = false;
+
+  
+
   constructor(
     private invoiceService: InvoiceService,
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder
   ) {
 
   }
@@ -78,6 +84,14 @@ export class AdminInvoiceComponent implements OnInit {
   public adminOut() {
     window.localStorage.clear();
     this.router.navigate(["/admin"]);
+  }
+
+  public openAddInvoiceDialog() {
+    this.display = true;
+  }
+
+  public closeDialog(event: boolean) {
+    this.display = false;
   }
 
 }

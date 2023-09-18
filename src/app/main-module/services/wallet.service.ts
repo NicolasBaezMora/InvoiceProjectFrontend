@@ -27,6 +27,10 @@ export class WalletService {
         return this.httpClient.get<WrapperResponse<WalletDTO>>(`${this.baseUrl}wallet`, {params});
     }
 
+    public getAllWallets(): Observable<WrapperResponse<WalletDTO[]>> {
+        return this.httpClient.get<WrapperResponse<WalletDTO[]>>(`${this.baseUrl}wallet/all`);
+    }
+
 }
 
 

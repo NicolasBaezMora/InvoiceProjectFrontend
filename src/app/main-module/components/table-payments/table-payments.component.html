@@ -29,12 +29,12 @@
         <ng-template pTemplate="body" let-payment>
             <tr>
                 <td><b>#{{payment.id}}</b></td>
-                <td>{{payment.paymentDate}}</td>
+                <td>{{payment.paymentDate | date}}</td>
                 <td>{{payment.paymentType}}</td>
                 <td>${{payment.paymentValue | number}}</td>
                 <td>{{payment.statePaymentDTO.state}}</td>
                 <td>{{payment.branchOfficeDTO.name}}</td>
-                <td><i>{{payment.invoiceDTO ? ("#" + payment.invoiceDTO.id) : "NULL"}}</i></td>
+                <td><i>{{payment.invoiceDTO ? ("#" + payment.invoiceDTO.id) : "No registra"}}</i></td>
 
             </tr>
         </ng-template>

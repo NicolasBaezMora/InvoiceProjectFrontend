@@ -1,0 +1,50 @@
+<div class="card-container">
+    <h2>Datos de la factura</h2>
+    <hr>
+    <form [formGroup]="form" autocomplete="off">
+        <div class="col">
+            <div class="row">
+                <span class="in-input">
+                    <label for="id">Cliente</label>
+                    <select class="form-select" formControlName="id" id="id">
+                        <option value="" selected>-- Selecciona un cliente --</option>
+                        <option *ngFor="let wallet of wallets" [value]="wallet.id">{{wallet.clientDTO?.name!}}</option>
+                    </select>
+                    <span class="form-text text-danger" *ngIf="fieldNotValid('id')">La fecha de facturación es necesaria</span>    
+                </span>
+                <div class="separator"></div>
+            </div>
+            <div class="row">
+                <span class="in-input">
+                    <label for="value">Valor de la factura</label>
+                    <input pInputText type="number" formControlName="value" id="value" placeholder="Valor">
+                    <span class="form-text text-danger" *ngIf="fieldNotValid('value')">El valor de la factura es necesario</span>
+                    <span class="form-text text-danger" *ngIf="fieldNotLessCero()">El valor no puede ser negativo</span>    
+                </span>
+                <div class="separator"></div>
+            </div>
+            <div class="row">
+                <span class="in-input">
+                    <label for="date">Fecha de facturación</label>
+                    <input pInputText type="date" formControlName="date" id="date">
+                    <span class="form-text text-danger" *ngIf="fieldNotValid('date')">La fecha de facturación es necesaria</span>    
+                </span>
+                <div class="separator"></div>
+
+            </div>
+            <div class="row">
+                <span class="in-input">
+                    <label for="state">Estado de la factura</label>
+                    <input pInputText type="text" value="PENDIENTE" id="state" disabled>
+                </span>
+                <div class="separator"></div>
+
+            </div>
+            <div class="row">
+                <button pButton (click)="add()" class="p-btn">Agregar</button>
+
+            </div>
+        </div>
+        
+    </form>
+</div>

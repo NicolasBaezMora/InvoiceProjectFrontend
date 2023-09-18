@@ -17,11 +17,11 @@
             <tr>
                 <td><b>#{{commission.id}}</b></td>
                 <td>${{commission.value | number}}</td>
-                <td>{{commission.dateGen}}</td>
-                <td>{{commission.dateInitialCalculation}}</td>
-                <td>{{commission.dateEndCalculation}}</td>
+                <td>{{commission.dateGen | date}}</td>
+                <td>{{commission.dateInitialCalculation | date}}</td>
+                <td>{{commission.dateEndCalculation | date}}</td>
                 <td>{{commission.branchOfficeDTO.name}}</td>
-                <td>{{commission.branchOfficeDTO.sanctionable}}</td>
+                <td>{{commission.branchOfficeDTO.sanctionable | sanctionable}}</td>
                 <td>{{commission.branchOfficeDTO.agreementTypeDTO.method}}</td>
             </tr>
         </ng-template>

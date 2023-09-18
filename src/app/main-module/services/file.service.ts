@@ -18,7 +18,7 @@ export class FileService {
 
 
   public loadFile(hash: string, file: File): Observable<WrapperResponse<ResponseFile>> {
-    const formData = new FormData;
+    const formData = new FormData();
     formData.append("hash", hash);
     formData.append("file", file);
     return this.httpClient.post<WrapperResponse<ResponseFile>>(`${this.baseUrl}file/upload`, formData);

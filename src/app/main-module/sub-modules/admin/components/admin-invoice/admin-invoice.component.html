@@ -1,6 +1,6 @@
 <button pButton type="button" class="p-button-danger p-button-outlined out-btn" (click)="adminOut()">✘ salir</button>
 
-<button pButton class="p-btn">Añadir factura</button>
+<button pButton class="p-btn" (click)="openAddInvoiceDialog()">Añadir factura</button>
 
 <div class="container">
 
@@ -33,7 +33,7 @@
             <tr>
                 <td><b>#{{invoice.id}}</b></td>
                 <td>${{invoice.invoicedValue | number}}</td>
-                <td>{{invoice.invoicedDate}}</td>
+                <td>{{invoice.invoicedDate | date}}</td>
                 <td><i>#{{invoice.walletDTO.clientDTO.id}}</i></td>
                 <td>{{invoice.walletDTO.clientDTO.name}}</td>
                 <td>{{invoice.stateInvoice.state}}</td>
@@ -46,3 +46,6 @@
 
 </div>
 
+<p-dialog header="Añadir factura" [(visible)]="display" [modal]="true" [draggable]="false">
+    <app-add-invoice-card (added)="closeDialog($event)"></app-add-invoice-card>
+</p-dialog>

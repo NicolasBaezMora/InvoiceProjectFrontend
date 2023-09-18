@@ -1,3 +1,5 @@
+import { SanctionablePipe } from './utils/sanctionable.pipe';
+import { AddInvoiceCardComponent } from './sub-modules/admin/components/add-invoice-card/add-invoice-card.component';
 import { PrimengModule } from './../primeng/primeng.module';
 
 import { CommonModule } from '@angular/common';
@@ -21,6 +23,7 @@ import { TableCommissionsComponent } from './components/table-commissions/table-
 import { AdminPanelComponent } from './sub-modules/admin/components/admin-panel/admin-panel.component';
 import { AdminCommissionManuallyComponent } from './sub-modules/admin/components/admin-commission-manually/admin-commission-manually.component';
 import { AdminInvoiceComponent } from './sub-modules/admin/components/admin-invoice/admin-invoice.component';
+import { CustomIconComponent } from './components/custom-icon/custom-icon.component';
 
 
 @NgModule({
@@ -39,7 +42,10 @@ import { AdminInvoiceComponent } from './sub-modules/admin/components/admin-invo
     TableCommissionsComponent,
     AdminPanelComponent,
     AdminCommissionManuallyComponent,
-    AdminInvoiceComponent
+    AdminInvoiceComponent,
+    AddInvoiceCardComponent,
+    CustomIconComponent,
+    SanctionablePipe
   ],
   imports: [
     CommonModule,
