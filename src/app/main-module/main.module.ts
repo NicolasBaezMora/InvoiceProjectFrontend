@@ -24,6 +24,7 @@ import { AdminPanelComponent } from './sub-modules/admin/components/admin-panel/
 import { AdminCommissionManuallyComponent } from './sub-modules/admin/components/admin-commission-manually/admin-commission-manually.component';
 import { AdminInvoiceComponent } from './sub-modules/admin/components/admin-invoice/admin-invoice.component';
 import { CustomIconComponent } from './components/custom-icon/custom-icon.component';
+import { DateFilterComponent } from './components/date-filter/date-filter.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { CustomIconComponent } from './components/custom-icon/custom-icon.compon
     AdminInvoiceComponent,
     AddInvoiceCardComponent,
     CustomIconComponent,
-    SanctionablePipe
+    SanctionablePipe,
+    DateFilterComponent
   ],
   imports: [
     CommonModule,

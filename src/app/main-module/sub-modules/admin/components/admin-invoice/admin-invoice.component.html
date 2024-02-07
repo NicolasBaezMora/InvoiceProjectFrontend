@@ -6,17 +6,21 @@
 
     <div class="row">
         <div class="col-4">
-            <p-radioButton (onClick)="switchPending()" name="groupname" value="pending" [(ngModel)]="selectedValue" label="Pendientes"></p-radioButton>
-            
+            <p-radioButton (onClick)="switchPending()" name="groupname" value="pending" [(ngModel)]="selectedValue"
+                label="Pendientes"></p-radioButton>
+
         </div>
         <div class="col-4">
-            <p-radioButton (onClick)="switchPaid()" name="groupname" value="paid" [(ngModel)]="selectedValue" label="Pagadas"></p-radioButton>
+            <p-radioButton (onClick)="switchPaid()" name="groupname" value="paid" [(ngModel)]="selectedValue"
+                label="Pagadas"></p-radioButton>
 
         </div>
     </div>
 
 
     <hr>
+
+    <app-date-filter (onDateRangeSelected)="handleDateRange($event)" (onQuitFilter)="handleQuitFilter()"></app-date-filter>
 
     <p-table [value]="invoices" [tableStyle]="{'min-width': '50rem'}">
         <ng-template pTemplate="header">
@@ -41,7 +45,8 @@
         </ng-template>
     </p-table>
 
-    <p-paginator #paginator [rows]="10" [totalRecords]="totalInvoices" (onPageChange)="paginatorChange($event)"></p-paginator>
+    <p-paginator #paginator [rows]="10" [totalRecords]="totalInvoices" (onPageChange)="paginatorChange($event)" *ngIf="!filterActive">
+    </p-paginator>
     <span><i>Numero de registros: {{totalInvoices}}</i></span>
 
 </div>

@@ -1,3 +1,4 @@
+import { DateRange } from './../../interfaces/DateRange';
 import { Component, Input, OnInit } from '@angular/core';
 import { CommissionDTO } from '../../interfaces/CommissionDTO';
 import { CommissionService } from '../../services/commission.service';
@@ -21,6 +22,8 @@ export class TableCommissionsComponent implements OnInit {
   public commissions: CommissionDTO[] = [];
 
   public totalCommissions: number = 0;
+
+  public filterActive: boolean = false;
 
   constructor(
     private commissionService: CommissionService
@@ -57,4 +60,20 @@ export class TableCommissionsComponent implements OnInit {
   public paginatorChange(event: any) {
     this.getCommissions(event.page);
   }
+
+  public handleDateRange(dateRange: DateRange) {
+    this.filterActive = true;
+    this.commissionService.getCommissionsByDateRange(this.hash, dateRange).subscribe(
+      data => {
+        this.commissions = data.body;
+        this.totalCommissions = data.body.length;
+      }
+    );
+  }
+
+  public handleQuitFilter() {
+    this.filterActive = false;
+    this.getCommissions(this.page);
+  }
+
 }

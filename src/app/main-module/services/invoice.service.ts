@@ -1,3 +1,4 @@
+import { DateRange } from './../interfaces/DateRange';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -29,6 +30,21 @@ export class InvoiceService {
       .set("page", page);
     return this.httpClient.get<WrapperResponse<ResponseData<InvoiceDTO>>>(`${this.baseUrl}invoice/paid`, {params});
   }
+
+  public getPendingInvoicesByDateRange(dateRange: DateRange): Observable<WrapperResponse<InvoiceDTO[]>> {
+    const params = new HttpParams()
+      .set("dateStart", dateRange.dateStart)
+      .set("dateEnd", dateRange.dateEnd);
+    return this.httpClient.get<WrapperResponse<InvoiceDTO[]>>(`${this.baseUrl}invoice/pendingDateRange`, {params});
+  }
+
+  public getPaidInvoicesByDateRange(dateRange: DateRange): Observable<WrapperResponse<InvoiceDTO[]>> {
+    const params = new HttpParams()
+      .set("dateStart", dateRange.dateStart)
+      .set("dateEnd", dateRange.dateEnd);
+    return this.httpClient.get<WrapperResponse<InvoiceDTO[]>>(`${this.baseUrl}invoice/paidDateRange`, {params});
+  }
+
 
   public getStateInvoices(): Observable<WrapperResponse<State[]>> {
     return this.httpClient.get<WrapperResponse<State[]>>(`${this.baseUrl}stateInvoice`);

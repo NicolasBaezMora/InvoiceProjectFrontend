@@ -1,5 +1,7 @@
 <div class="container" *ngIf="validData">
 
+    <app-date-filter (onDateRangeSelected)="handleDateRange($event)" (onQuitFilter)="handleQuitFilter()"></app-date-filter>
+
     <p-table [value]="commissions" [tableStyle]="{'min-width': '50rem'}">
         <ng-template pTemplate="header">
             <tr>
@@ -27,7 +29,7 @@
         </ng-template>
     </p-table>
 
-    <p-paginator [rows]="10" [totalRecords]="totalCommissions" (onPageChange)="paginatorChange($event)"></p-paginator>
+    <p-paginator [rows]="10" [totalRecords]="totalCommissions" (onPageChange)="paginatorChange($event)" *ngIf="!filterActive"></p-paginator>
     <span><i>Numero de registros: {{totalCommissions}}</i></span>
 </div>
 

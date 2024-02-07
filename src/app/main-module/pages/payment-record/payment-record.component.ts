@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 
@@ -9,7 +9,7 @@ import { FileService } from '../../services/file.service';
   templateUrl: './payment-record.component.html',
   styleUrls: ['./payment-record.component.scss']
 })
-export class PaymentRecordComponent implements OnInit {
+export class PaymentRecordComponent {
   vis: boolean = false;
   dialog() {
     this.vis = true;
@@ -27,7 +27,7 @@ export class PaymentRecordComponent implements OnInit {
         null,
         [
           Validators.required,
-          this.requiredFileType
+          //this.requiredFileType
         ]
       ]
     }
@@ -42,10 +42,6 @@ export class PaymentRecordComponent implements OnInit {
     private formBuilder: FormBuilder,
     private fileService: FileService
   ) {
-
-  }
-
-  ngOnInit() {
 
   }
 
@@ -74,6 +70,7 @@ export class PaymentRecordComponent implements OnInit {
             confirmButtonColor: "#2B8B4B"
           });
           this.reset();
+          console.log(data);
         },
         error: err => {
           console.log(err);

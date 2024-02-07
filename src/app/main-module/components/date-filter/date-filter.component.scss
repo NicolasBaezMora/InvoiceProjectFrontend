@@ -1,0 +1,39 @@
+
+.p-btn {
+    text-align: center;
+    border-radius: 20px;
+    background-color: #2B8B4B;
+    color: #F8DB66;
+    border: 1px solid #F8DB66;
+    margin: 10px;
+    height: 40px;
+}
+
+.p-btn:hover {
+    background-color: #F8DB66;
+    color: #2B8B4B;
+    border: 1px solid #2B8B4B;
+}
+
+
+.p-btn-quit {
+    text-align: center;
+    border-radius: 20px;
+    background-color: #ffffff;
+    color: #2B8B4B;
+    border: 2px solid #2B8B4B;
+    margin: 10px;
+    height: 40px;
+    font-weight: bold;
+}
+
+.p-btn-quit:hover {
+    border-radius: 20px;
+    background-color: #2B8B4B;
+    color: #ffffff;
+    border: 2px solid #2B8B4B;
+    margin: 10px;
+    height: 40px;
+    font-weight: bold;
+}
+

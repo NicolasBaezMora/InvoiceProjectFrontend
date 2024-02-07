@@ -14,6 +14,8 @@
 
     <hr>
 
+    <app-date-filter (onDateRangeSelected)="handleDateRange($event)" (onQuitFilter)="handleQuitFilter()"></app-date-filter>
+
     <p-table [value]="payments" [tableStyle]="{'min-width': '50rem'}">
         <ng-template pTemplate="header">
             <tr>
@@ -40,7 +42,7 @@
         </ng-template>
     </p-table>
 
-    <p-paginator #paginator [rows]="10" [totalRecords]="totalPayments" (onPageChange)="paginatorChange($event)"></p-paginator>
+    <p-paginator #paginator [rows]="10" [totalRecords]="totalPayments" (onPageChange)="paginatorChange($event)" *ngIf="!filterActive"></p-paginator>
     <span><i>Numero de registros: {{totalPayments}}</i></span>
 </div>
 

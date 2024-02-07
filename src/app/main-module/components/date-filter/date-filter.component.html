@@ -1,0 +1,41 @@
+<p-accordion [activeIndex]="1">
+    <p-accordionTab header="Aplicar filtro de fecha">
+        <form [formGroup]="form">
+            <div class="row">
+                <div class="col-2">
+                    <div class="row">
+                        <label for="dateStart">Fecha inicio</label>
+
+                    </div>
+                    <div class="row">
+                        <input pInputText type="date" id="dateStart" formControlName="dateStart">
+
+                    </div>
+                </div>
+                <div class="col-1"></div>
+                <div class="col-2">
+                    <div class="row">
+                        <label for="dateEnd">Fecha fin</label>
+
+                    </div>
+                    <div class="row">
+                        <input pInputText type="date" id="dateEnd" formControlName="dateEnd">
+
+                    </div>
+                </div>
+                <div class="col-2"></div>
+                <div class="col-2">
+                    <div class="row">
+                        <button class="p-btn" type="submit" (click)="onSubmitDateRange()">Filtrar</button>
+                    </div>
+                    <div class="row">
+                        <span class="form-text text-danger" *ngIf="showAlertMessage">¡Rango invalido!</span>    
+                    </div>
+                </div>
+                <div class="col-3">
+                    <button class="p-btn-quit" (click)="quitFilter()">Quitar filtro</button>
+                </div>
+            </div>
+        </form>
+    </p-accordionTab>
+</p-accordion>

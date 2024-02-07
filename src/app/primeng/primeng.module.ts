@@ -9,6 +9,7 @@ import {CardModule} from 'primeng/card';
 import {PaginatorModule} from 'primeng/paginator';
 import {TableModule} from 'primeng/table';
 import {RadioButtonModule} from 'primeng/radiobutton';
+import { AccordionModule } from 'primeng/accordion';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {RadioButtonModule} from 'primeng/radiobutton';
     CardModule,
     PaginatorModule,
     TableModule,
-    RadioButtonModule
+    RadioButtonModule,
+    AccordionModule
   ]
 })
 export class PrimengModule { }

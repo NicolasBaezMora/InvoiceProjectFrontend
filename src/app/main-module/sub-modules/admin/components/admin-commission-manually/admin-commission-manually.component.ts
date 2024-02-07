@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BranchOfficeService } from './../../../../services/branch-office.service';
 import Swal from 'sweetalert2';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -38,7 +39,8 @@ export class AdminCommissionManuallyComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private commissionService: CommissionService,
-    private branchOfficeService: BranchOfficeService
+    private branchOfficeService: BranchOfficeService,
+    private httpClient: HttpClient
   ) {
 
   }
@@ -49,7 +51,7 @@ export class AdminCommissionManuallyComponent implements OnInit {
     );
   }
 
-  
+
   public adminOut() {
     window.localStorage.clear();
     this.router.navigate(["/admin"]);
@@ -60,7 +62,7 @@ export class AdminCommissionManuallyComponent implements OnInit {
   }
 
   public loadData() {
-    if (this.form.invalid){
+    if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
     }

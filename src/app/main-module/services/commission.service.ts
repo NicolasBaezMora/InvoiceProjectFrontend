@@ -1,3 +1,4 @@
+import { DateRange } from './../interfaces/DateRange';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { ResponseData } from './../interfaces/ResponseData';
@@ -22,6 +23,14 @@ export class CommissionService {
       .set("hash", hash)
       .set("page", page);
     return this.httpClient.get<WrapperResponse<ResponseData<CommissionDTO>>>(`${this.baseUrl}commission`, {params});
+  }
+
+  public getCommissionsByDateRange(hash: string, dateRange: DateRange): Observable<WrapperResponse<CommissionDTO[]>> {
+    const params = new HttpParams()
+      .set("hash", hash)
+      .set("dateStart", dateRange.dateStart)
+      .set("dateEnd", dateRange.dateEnd);
+    return this.httpClient.get<WrapperResponse<CommissionDTO[]>>(`${this.baseUrl}commission/commissionsByDateRange`, {params});
   }
 
   public generateCommissionManually(id: string, dateStart: string, dateEnd: string): Observable<WrapperResponse<null>> {
